@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test de Autoevaluación de Autoestima</title>
+<style>
+/* Estilos basados en tu plantilla */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #fdd0a1, #fbe3c2); /* Nuevo color de fondo */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #ffffffcc;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+h1 {
+    text-align: center;
+    color: #8c4710; /* Color café/terroso */
+    margin-bottom: 30px;
+}
+
+.pregunta {
+    margin-bottom: 25px;
+    padding: 15px 20px;
+    background: #fff8e1; /* Fondo claro para preguntas */
+    border-radius: 10px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.pregunta:hover {
+    transform: translateY(-3px);
+    background: #ffeac7;
+}
+
+.pregunta p {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #4a2d18;
+}
+
+.opciones label {
+    display: inline-block;
+    margin-right: 15px;
+    padding: 8px 14px;
+    border-radius: 50px;
+    background: #fde8c2;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.opciones input[type="radio"] {
+    display: none;
+}
+
+.opciones input[type="radio"]:checked + span {
+    background: #8c4710;
+    color: #fff;
+}
+
+button {
+    display: block;
+    margin: 30px auto 10px;
+    padding: 12px 35px;
+    background: #8c4710;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #a85817;
+}
+
+#resultado {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background: #ffeac7;
+    border-left: 6px solid #8c4710;
+    border-radius: 10px;
+}
+
+#resultado h2 {
+    margin-top: 0;
+    color: #8c4710;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Cuestionario de Autoevaluación de Autoestima</h1>
+    <p style="text-align: center; font-style: italic;">Califica tu nivel de acuerdo con cada enunciado, siendo 5 totalmente de acuerdo y 1 totalmente en desacuerdo.</p>
+
+    <form id="testAutoestima">
+
+        <div class="pregunta"><p>1. Me siento satisfecho(a) conmigo mismo(a).</p><div class="opciones">
+            <label><input type="radio" name="p1" value="5"><span>5</span></label>
+            <label><input type="radio" name="p1" value="4"><span>4</span></label>
+            <label><input type="radio" name="p1" value="3"><span>3</span></label>
+            <label><input type="radio" name="p1" value="2"><span>2</span></label>
+            <label><input type="radio" name="p1" value="1"><span>1</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>2. Siento que tengo cualidades valiosas.</p><div class="opciones">
+            <label><input type="radio" name="p2" value="5"><span>5</span></label>
+            <label><input type="radio" name="p2" value="4"><span>4</span></label>
+            <label><input type="radio" name="p2" value="3"><span>3</span></label>
+            <label><input type="radio" name="p2" value="2"><span>2</span></label>
+            <label><input type="radio" name="p2" value="1"><span>1</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>3. Creo que tengo muchas cosas de las que puedo estar orgulloso(a).</p><div class="opciones">
+            <label><input type="radio" name="p3" value="5"><span>5</span></label>
+            <label><input type="radio" name="p3" value="4"><span>4</span></label>
+            <label><input type="radio" name="p3" value="3"><span>3</span></label>
+            <label><input type="radio" name="p3" value="2"><span>2</span></label>
+            <label><input type="radio" name="p3" value="1"><span>1</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>4. Me considero una persona capaz.</p><div class="opciones">
+            <label><input type="radio" name="p4" value="5"><span>5</span></label>
+            <label><input type="radio" name="p4" value="4"><span>4</span></label>
+            <label><input type="radio" name="p4" value="3"><span>3</span></label>
+            <label><input type="radio" name="p4" value="2"><span>2</span></label>
+            <label><input type="radio" name="p4" value="1"><span>1</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>5. Me siento seguro(a) al tomar decisiones.</p><div class="opciones">
+            <label><input type="radio" name="p5" value="5"><span>5</span></label>
+            <label><input type="radio" name="p5" value="4"><span>4</span></label>
+            <label><input type="radio" name="p5" value="3"><span>3</span></label>
+            <label><input type="radio" name="p5" value="2"><span>2</span></label>
+            <label><input type="radio" name="p5" value="1"><span>1</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>6. Confío en que puedo resolver los problemas que enfrento.</p><div class="opciones">
+            <label><input type="radio" name="p6" value="5"><span>5</span></label>
+            <label><input type="radio" name="p6" value="4"><span>4</span></label>
+            <label><input type="radio" name="p6" value="3"><span>3</span></label>
+            <label><input type="radio" name="p6" value="2"><span>2</span></label>
+            <label><input type="radio" name="p6" value="1"><span>1</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>7. Siento que puedo alcanzar las metas que me propongo.</p><div class="opciones">
+            <label><input type="radio" name="p7" value="5"><span>5</span></label>
+            <label><input type="radio" name="p7" value="4"><span>4</span></label>
+            <label><input type="radio" name="p7" value="3"><span>3</span></label>
+            <label><input type="radio" name="p7" value="2"><span>2</span></label>
+            <label><input type="radio" name="p7" value="1"><span>1</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>8. Me siento cómodo(a) con mi forma de ser.</p><div class="opciones">
+            <label><input type="radio" name="p8" value="5"><span>5</span></label>
+            <label><input type="radio" name="p8" value="4"><span>4</span></label>
+            <label><input type="radio" name="p8" value="3"><span>3</span></label>
+            <label><input type="radio" name="p8" value="2"><span>2</span></label>
+            <label><input type="radio" name="p8" value="1"><span>1</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>9. Me gusta la persona en la que me estoy convirtiendo.</p><div class="opciones">
+            <label><input type="radio" name="p9" value="5"><span>5</span></label>
+            <label><input type="radio" name="p9" value="4"><span>4</span></label>
+            <label><input type="radio" name="p9" value="3"><span>3</span></label>
+            <label><input type="radio" name="p9" value="2"><span>2</span></label>
+            <label><input type="radio" name="p9" value="1"><span>1</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>10. Acepto mis defectos sin sentirme menos.</p><div class="opciones">
+            <label><input type="radio" name="p10" value="5"><span>5</span></label>
+            <label><input type="radio" name="p10" value="4"><span>4</span></label>
+            <label><input type="radio" name="p10" value="3"><span>3</span></label>
+            <label><input type="radio" name="p10" value="2"><span>2</span></label>
+            <label><input type="radio" name="p10" value="1"><span>1</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>11. Siento que merezco ser tratado(a) con respeto.</p><div class="opciones">
+            <label><input type="radio" name="p11" value="5"><span>5</span></label>
+            <label><input type="radio" name="p11" value="4"><span>4</span></label>
+            <label><input type="radio" name="p11" value="3"><span>3</span></label>
+            <label><input type="radio" name="p11" value="2"><span>2</span></label>
+            <label><input type="radio" name="p11" value="1"><span>1</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>12. Reconozco mis logros, aunque sean pequeños.</p><div class="opciones">
+            <label><input type="radio" name="p12" value="5"><span>5</span></label>
+            <label><input type="radio" name="p12" value="4"><span>4</span></label>
+            <label><input type="radio" name="p12" value="3"><span>3</span></label>
+            <label><input type="radio" name="p12" value="2"><span>2</span></label>
+            <label><input type="radio" name="p12" value="1"><span>1</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>13. Cuando cometo errores, no me juzgo con dureza.</p><div class="opciones">
+            <label><input type="radio" name="p13" value="5"><span>5</span></label>
+            <label><input type="radio" name="p13" value="4"><span>4</span></label>
+            <label><input type="radio" name="p13" value="3"><span>3</span></label>
+            <label><input type="radio" name="p13" value="2"><span>2</span></label>
+            <label><input type="radio" name="p13" value="1"><span>1</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>14. Siento que las personas que me rodean me valoran.</p><div class="opciones">
+            <label><input type="radio" name="p14" value="5"><span>5</span></label>
+            <label><input type="radio" name="p14" value="4"><span>4</span></label>
+            <label><input type="radio" name="p14" value="3"><span>3</span></label>
+            <label><input type="radio" name="p14" value="2"><span>2</span></label>
+            <label><input type="radio" name="p14" value="1"><span>1</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>15. Creo que aporto cosas positivas a los demás.</p><div class="opciones">
+            <label><input type="radio" name="p15" value="5"><span>5</span></label>
+            <label><input type="radio" name="p15" value="4"><span>4</span></label>
+            <label><input type="radio" name="p15" value="3"><span>3</span></label>
+            <label><input type="radio" name="p15" value="2"><span>2</span></label>
+            <label><input type="radio" name="p15" value="1"><span>1</span></label>
+        </div></div>
+
+        <button type="submit">Ver Mi Nivel de Autoestima</button>
+    </form>
+
+    <div id="resultado"></div>
+</div>
+
+<script>
+document.getElementById('testAutoestima').addEventListener('submit', function(e){
+    e.preventDefault();
+    let puntajeTotal = 0;
+    
+    // 1. Recoger y sumar los puntos de las 15 preguntas
+    for(let i=1; i<=15; i++){
+        const r = document.querySelector(`input[name=p${i}]:checked`);
+        if(!r){ 
+            alert('Por favor, responde todas las preguntas antes de ver el resultado.'); 
+            return; 
+        }
+        puntajeTotal += parseInt(r.value);
+    }
+
+    let interpretacion = "";
+    let icono = "";
+
+    // 2. Implementar la lógica condicional (tu fórmula SI anidada)
+    if (puntajeTotal >= 60) {
+        icono = "✅";
+        interpretacion = "Autoestima ALTA (60 – 75 puntos): Te valoras, confías en tus capacidades y reconoces tu valor personal. Esta base sólida te permite tomar riesgos saludables, manejar el fracaso como aprendizaje y construir relaciones equilibradas. ¡Sigue practicando la autoconciencia para mantener y reforzar este bienestar!";
+    } else if (puntajeTotal >= 45) {
+        icono = "🔶";
+        interpretacion = "Autoestima MEDIA (45 – 59 puntos): Tienes una buena base de autovaloración, pero tu confianza es variable. Es probable que tu autovaloración dependa a veces de logros o validación externa. La área clave a fortalecer es la autocompasión. Te sugiero identificar tu diálogo interno negativo y contrarrestarlo con evidencia objetiva de tus éxitos.";
+    } else if (puntajeTotal >= 30) {
+        icono = "⚠️";
+        interpretacion = "Autoestima BAJA (30 – 44 puntos): Es importante trabajar activamente en tu autovaloración y autoconfianza. Tiendes a enfocarte en tus defectos y te puede costar defender tus límites. El área clave a fortalecer es la Autoaceptación. Comienza practicando el reconocimiento diario de 1 a 3 logros (aunque sean pequeños) y evita la comparación social dañina.";
+    } else {
+        icono = "❌";
+        interpretacion = "Autoestima MUY BAJA (15 – 29 puntos): Tu bienestar emocional requiere ser priorizado. Es posible que experimentes una autocrítica intensa y que sientas que no mereces respeto o afecto. El área clave a fortalecer es la Seguridad Personal. Te recomendamos buscar apoyo profesional (terapia psicológica o consejería) para desarrollar herramientas sólidas de autovaloración y cuidado emocional.";
+    }
+
+    // 3. Mostrar el resultado en el div "resultado"
+    document.getElementById('resultado').innerHTML = `
+        <h2>${icono} Tu Puntuación Total: ${puntajeTotal}</h2>
+        <p style="font-size: 1.1em;">${interpretacion}</p>
+        <p style="font-size: 0.9em; margin-top: 15px;">* Este es un test orientativo y no reemplaza el diagnóstico de un profesional.</p>
+    `;
+    document.getElementById('resultado').style.display = 'block';
+});
+</script>
+</body>
+</html>

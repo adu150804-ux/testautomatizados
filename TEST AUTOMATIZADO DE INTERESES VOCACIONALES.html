@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test de Intereses Vocacionales (RIASEC)</title>
+<style>
+/* 🎨 Estilos con tema Verde Claro */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #c8e6c9, #e8f5e9); /* Fondo Verde claro degradado */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 850px;
+    margin: 40px auto;
+    background: #ffffffcc;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+h1 {
+    text-align: center;
+    color: #2E7D32; /* Verde oscuro */
+    margin-bottom: 30px;
+}
+
+/* Sección de instrucciones claras */
+.instrucciones {
+    background: #e6ffe6; 
+    border-left: 5px solid #388e3c; /* Verde medio */
+    padding: 15px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+.instrucciones p {
+    margin: 5px 0;
+    color: #2E7D32;
+}
+
+.pregunta {
+    margin-bottom: 25px;
+    padding: 15px 20px;
+    background: #f1f8e9; /* Fondo muy claro para preguntas */
+    border-radius: 10px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.pregunta:hover {
+    transform: translateY(-2px);
+    background: #e0f2f1;
+}
+
+.pregunta p {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #2E7D32;
+}
+
+.opciones label {
+    display: inline-block;
+    margin-right: 15px;
+    padding: 8px 14px;
+    border-radius: 50px;
+    background: #a5d6a7; /* Verde claro de opción */
+    color: #388e3c;
+    cursor: pointer;
+    transition: 0.3s;
+    min-width: 130px; 
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.opciones input[type="radio"] {
+    display: none;
+}
+
+.opciones input[type="radio"]:checked + span {
+    background: #388e3c; /* Verde oscuro para selección */
+    color: #fff;
+    font-weight: bold;
+}
+
+button {
+    display: block;
+    margin: 30px auto 10px;
+    padding: 12px 35px;
+    background: #388e3c;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #4CAF50;
+}
+
+#resultado {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    background: #f1f8e9;
+    border-left: 6px solid #388e3c;
+    border-radius: 10px;
+}
+
+#resultado h2 {
+    margin-top: 0;
+    color: #2E7D32;
+}
+
+.nota-final {
+    font-size: 0.9em; 
+    margin-top: 20px;
+    color: #616161;
+    border-top: 1px dashed #bdbdbd;
+    padding-top: 10px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Explora tus Intereses Vocacionales</h1>
+
+    <div class="instrucciones">
+        <p style="font-weight: bold; margin-bottom: 10px;">INSTRUCCIONES:</p>
+        <p>A continuación, encontrarás 30 actividades. Selecciona el número que mejor indique tu nivel de interés en realizar esa actividad, usando la siguiente escala:</p>
+        <p style="font-weight: bold; margin-top: 10px;">1 (No me interesa nada) a 5 (Me interesa muchísimo)</p>
+        <p style="font-style: italic; margin-top: 10px;">Asegúrate de responder todas las preguntas y luego haz clic en "Ver Mi Perfil Vocacional".</p>
+    </div>
+
+    <form id="testVocacional">
+
+        <div class="pregunta"><p>1. Diseñar, construir o reparar estructuras, máquinas o equipos tecnológicos.</p><div class="opciones">
+            <label><input type="radio" name="p1" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p1" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p1" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p1" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p1" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>2. Realizar proyectos al aire libre relacionados con el cuidado de animales, la agricultura, o la exploración de la naturaleza.</p><div class="opciones">
+            <label><input type="radio" name="p2" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p2" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p2" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p2" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p2" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>3. Trabajar en el desarrollo de software, redes o sistemas de seguridad informática.</p><div class="opciones">
+            <label><input type="radio" name="p3" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p3" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p3" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p3" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p3" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>4. Operar instrumentos de precisión o conducir vehículos/equipos grandes y complejos.</p><div class="opciones">
+            <label><input type="radio" name="p4" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p4" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p4" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p4" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p4" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>5. Tener una profesión que requiera habilidades manuales y resultados inmediatos (como un oficio técnico).</p><div class="opciones">
+            <label><input type="radio" name="p5" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p5" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p5" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p5" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p5" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        
+        <div class="pregunta"><p>6. Realizar investigaciones para descubrir nuevos conocimientos en ciencias biológicas o físicas.</p><div class="opciones">
+            <label><input type="radio" name="p6" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p6" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p6" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p6" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p6" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>7. **Usar la lógica y el análisis de datos para investigar y resolver misterios o problemas muy complejos (como el funcionamiento de una enfermedad o un fallo de mercado).**</p><div class="opciones">
+            <label><input type="radio" name="p7" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p7" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p7" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p7" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p7" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>8. Estudiar el cerebro, el comportamiento humano o las enfermedades para encontrar soluciones médicas o terapéuticas.</p><div class="opciones">
+            <label><input type="radio" name="p8" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p8" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p8" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p8" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p8" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>9. Leer y escribir artículos académicos o informes técnicos detallados sobre temas especializados.</p><div class="opciones">
+            <label><input type="radio" name="p9" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p9" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p9" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p9" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p9" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>10. Resolver acertijos lógicos o problemas matemáticos complejos por el gusto de encontrar la verdad.</p><div class="opciones">
+            <label><input type="radio" name="p10" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p10" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p10" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p10" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p10" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        
+        <div class="pregunta"><p>11. Diseñar el vestuario, la escenografía o la iluminación para un espectáculo o evento.</p><div class="opciones">
+            <label><input type="radio" name="p11" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p11" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p11" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p11" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p11" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>12. Escribir guiones, componer música, o crear videos/fotografías artísticas.</p><div class="opciones">
+            <label><input type="radio" name="p12" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p12" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p12" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p12" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p12" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>13. Dibujar, pintar o esculpir, enfocándome en expresar mis emociones o ideas de forma original.</p><div class="opciones">
+            <label><input type="radio" name="p13" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p13" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p13" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p13" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p13" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>14. Trabajar en una profesión que no tenga un horario fijo ni reglas de vestimenta estrictas.</p><div class="opciones">
+            <label><input type="radio" name="p14" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p14" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p14" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p14" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p14" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>15. Crear el diseño visual y la identidad de marca (logos, colores, tipografía) para una empresa o producto.</p><div class="opciones">
+            <label><input type="radio" name="p15" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p15" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p15" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p15" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p15" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>16. Ser profesor, maestro o mentor, ayudando a otros a aprender y crecer.</p><div class="opciones">
+            <label><input type="radio" name="p16" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p16" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p16" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p16" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p16" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>17. Trabajar como psicólogo, terapeuta o consejero, ofreciendo apoyo emocional y soluciones personales.</p><div class="opciones">
+            <label><input type="radio" name="p17" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p17" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p17" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p17" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p17" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>18. Colaborar en causas sociales, ONG o servicios comunitarios para el bienestar de la sociedad.</p><div class="opciones">
+            <label><input type="radio" name="p18" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p18" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p18" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p18" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p18" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>19. Trabajar en el área de Recursos Humanos, facilitando la comunicación y la capacitación de equipos.</p><div class="opciones">
+            <label><input type="radio" name="p19" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p19" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p19" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p19" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p19" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>20. Dedicarme a profesiones de la salud como enfermería, fisioterapia o nutrición, cuidando el bienestar físico de otros.</p><div class="opciones">
+            <label><input type="radio" name="p20" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p20" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p20" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p20" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p20" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>21. Liderar un proyecto o empresa, siendo responsable de la visión general y la toma de decisiones clave.</p><div class="opciones">
+            <label><input type="radio" name="p21" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p21" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p21" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p21" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p21" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>22. Diseñar estrategias de marketing, publicidad o relaciones públicas para influir en el público.</p><div class="opciones">
+            <label><input type="radio" name="p22" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p22" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p22" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p22" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p22" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>23. Iniciar un negocio o lanzar un producto nuevo, asumiendo riesgos para obtener ganancias.</p><div class="opciones">
+            <label><input type="radio" name="p23" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p23" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p23" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p23" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p23" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>24. Negociar contratos, resolver disputas legales o hacer lobby (influencia política) para defender una postura.</p><div class="opciones">
+            <label><input type="radio" name="p24" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p24" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p24" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p24" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p24" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>25. Ser la persona que da la cara por una organización (vocero, representante) y habla en público con autoridad.</p><div class="opciones">
+            <label><input type="radio" name="p25" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p25" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p25" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p25" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p25" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>26. Gestionar presupuestos, llevar la contabilidad o auditar las finanzas de una empresa.</p><div class="opciones">
+            <label><input type="radio" name="p26" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p26" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p26" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p26" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p26" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>27. Organizar grandes volúmenes de datos, crear y mantener bases de datos o archivos sistemáticos.</p><div class="opciones">
+            <label><input type="radio" name="p27" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p27" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p27" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p27" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p27" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>28. Trabajar en un ambiente de oficina tranquilo y estructurado, donde la precisión es clave.</p><div class="opciones">
+            <label><input type="radio" name="p28" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p28" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p28" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p28" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p28" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>29. Asegurar el cumplimiento de normas, leyes o políticas internas (por ejemplo, ser inspector o gestor de calidad).</p><div class="opciones">
+            <label><input type="radio" name="p29" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p29" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p29" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p29" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p29" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <div class="pregunta"><p>30. Planificar y coordinar eventos, viajes o reuniones con atención meticulosa a los detalles.</p><div class="opciones">
+            <label><input type="radio" name="p30" value="1"><span>1: No me interesa nada / Lo detesto.</span></label>
+            <label><input type="radio" name="p30" value="2"><span>2: Me interesa muy poco.</span></label>
+            <label><input type="radio" name="p30" value="3"><span>3: Indiferente / Me da igual.</span></label>
+            <label><input type="radio" name="p30" value="4"><span>4: Me interesa bastante.</span></label>
+            <label><input type="radio" name="p30" value="5"><span>5: Me interesa muchísimo / Lo haría sin dudar.</span></label>
+        </div></div>
+        <button type="submit">Ver Mi Perfil Vocacional</button>
+    </form>
+
+    <div id="resultado"></div>
+</div>
+
+<script>
+document.getElementById('testVocacional').addEventListener('submit', function(e){
+    e.preventDefault();
+    const respuestas = [];
+    const numPreguntas = 30;
+    
+    // 1. Recoger las respuestas y verificar que todas estén marcadas
+    for(let i=1; i<=numPreguntas; i++){
+        const r = document.querySelector(`input[name=p${i}]:checked`);
+        if(!r){ 
+            alert('¡Atención! Por favor, responde todas las preguntas (1 a 30) antes de ver el resultado.'); 
+            return; 
+        }
+        respuestas.push(parseInt(r.value));
+    }
+
+    // 2. Calcular los puntajes totales por categoría (RIASEC)
+    // 5 ítems por categoría, valores 1 a 5 (Max 25, Min 5)
+    
+    // R (Realista) - P1 a P5 (índices 0 a 4)
+    const scoreR = respuestas.slice(0, 5).reduce((sum, val) => sum + val, 0); 
+    // I (Investigador) - P6 a P10 (índices 5 a 9)
+    const scoreI = respuestas.slice(5, 10).reduce((sum, val) => sum + val, 0); 
+    // A (Artístico) - P11 a P15 (índices 10 a 14)
+    const scoreA = respuestas.slice(10, 15).reduce((sum, val) => sum + val, 0); 
+    // S (Social) - P16 a P20 (índices 15 a 19)
+    const scoreS = respuestas.slice(15, 20).reduce((sum, val) => sum + val, 0); 
+    // E (Emprendedor) - P21 a P25 (índices 20 a 24)
+    const scoreE = respuestas.slice(20, 25).reduce((sum, val) => sum + val, 0); 
+    // C (Convencional) - P26 a P30 (índices 25 a 29)
+    const scoreC = respuestas.slice(25, 30).reduce((sum, val) => sum + val, 0); 
+
+    // 3. Determinar el Código RIASEC de Tres Letras
+    const puntajes = [
+        { tipo: 'R', score: scoreR, nombre: 'Realista' },
+        { tipo: 'I', score: scoreI, nombre: 'Investigador' },
+        { tipo: 'A', score: scoreA, nombre: 'Artístico' },
+        { tipo: 'S', score: scoreS, nombre: 'Social' },
+        { tipo: 'E', score: scoreE, nombre: 'Emprendedor' },
+        { tipo: 'C', score: scoreC, nombre: 'Convencional' }
+    ];
+
+    // Ordenar de mayor a menor
+    puntajes.sort((a, b) => b.score - a.score);
+
+    const codigoRIASEC = puntajes[0].tipo + puntajes[1].tipo + puntajes[2].tipo;
+    const primario = puntajes[0].nombre;
+    const secundario = puntajes[1].nombre;
+    const terciario = puntajes[2].nombre;
+
+    // 4. Generar la Interpretación (Lenguaje Cercano sin Emojis/Asteriscos)
+    
+    const descripciones = {
+        'Realista': "Tu interés principal es el **Realista**. Te sientes atraído por el trabajo concreto, tangible y práctico. Eres de los que prefiere 'hacer' en lugar de solo teorizar. Disfrutas usando tus manos, herramientas, o interactuando con la naturaleza, máquinas y objetos que tienen un fin visible y directo. Buscas desafíos que requieran fuerza física o destreza mecánica, valoras la eficiencia y la solidez. Las carreras que implican la ingeniería, la construcción, la tecnología, la agricultura o los oficios técnicos son áreas que debes explorar seriamente.",
+        'Investigador': "Tu interés principal es el **Investigador**. Tu motor es la curiosidad y la necesidad de entender el porqué de las cosas. Te encanta analizar, observar y resolver problemas complejos a través de la lógica y la evidencia. Eres independiente y disfrutas de la investigación, el estudio de teorías y el trabajo intelectual. Tiendes a sobresalir en campos que exigen pensamiento crítico y precisión, como las ciencias naturales, la medicina, la investigación social/académica o la ingeniería abstracta.",
+        'Artístico': "Tu interés principal es el **Artístico**. Tu mundo gira en torno a la creatividad, la autoexpresión y la estética. Necesitas ambientes que te permitan la libertad de innovar y expresar tus emociones, ya sea a través de formas, colores, palabras, música o movimiento. Valoras la belleza, la originalidad y la intuición. Te sentirías realizado en profesiones como el diseño gráfico o web, la arquitectura, la escritura creativa, las artes visuales o escénicas.",
+        'Social': "Tu interés principal es el **Social**. Eres una persona que se nutre al interactuar y servir a los demás. Tu mayor satisfacción viene de ayudar, informar, capacitar, orientar o curar a otras personas. Eres empático, colaborador y buscas mejorar la vida de tu comunidad o de individuos. Tu vocación se encuentra en roles de servicio, enseñanza, psicología, trabajo social, recursos humanos o cualquier profesión de la salud que te ponga en contacto directo para apoyar y desarrollar el potencial humano.",
+        'Emprendedor': "Tu interés principal es el **Emprendedor**. Eres un líder innato, dinámico y ambicioso. Te gusta tomar la iniciativa, organizar, dirigir y persuadir a otros para alcanzar metas, especialmente si están ligadas al ámbito económico o político. Disfrutas de los retos, la competencia y te sientes cómodo tomando riesgos. Tu lugar ideal está en la dirección, la administración de negocios, el marketing, las ventas, el derecho o cualquier puesto que te permita influir y tener impacto.",
+        'Convencional': "Tu interés principal es el **Convencional**. Eres una persona de orden, precisión y eficiencia. Te sientes cómodo en ambientes estructurados donde las reglas son claras y el trabajo requiere atención al detalle, manejo de datos y organización sistemática. Eres metódico y valoras la exactitud. Las carreras ideales para ti son aquellas que implican la contabilidad, las finanzas, la administración de oficinas, la gestión de bases de datos o cualquier rol que necesite una mente organizada para mantener el flujo de trabajo impecable."
+    };
+    
+    const interpretacion = `
+        <h2 style="color: #388e3c;">Tu Perfil Vocacional es: ${codigoRIASEC}</h2>
+        <h3 style="color: #2E7D32;">Tipo Primario: ${primario} (Puntuación: ${puntajes[0].score}/25)</h3>
+        
+        <p style="font-size: 1.1em;">
+            ${descripciones[primario]}
+        </p>
+
+        <h3 style="color: #2E7D32; margin-top: 20px;">Intereses Secundarios</h3>
+        <p>Tu segundo interés más fuerte es **${secundario}** (Puntuación: ${puntajes[1].score}/25) y tu tercero es **${terciario}** (Puntuación: ${puntajes[2].score}/25).</p>
+        <p>Tu código de tres letras, **${codigoRIASEC}**, representa la combinación única de tus motivaciones. Considera buscar áreas profesionales que permitan el cruce de estos tres intereses. Por ejemplo, si tu código es **SAE** (Social, Artístico, Emprendedor), podrías considerar roles como gestor cultural o director de comunicación creativa, donde puedes ayudar a la gente (S), usar tu creatividad (A) y dirigir proyectos (E).</p>
+    `;
+
+    // 5. Mostrar el resultado con la nota final
+    document.getElementById('resultado').innerHTML = `
+        ${interpretacion}
+        <div class="nota-final">
+            <p>Este instrumento es una herramienta de autoconocimiento y orientación vocacional, no un test psicológico, una evaluación clínica o un diagnóstico profesional.</p>
+        </div>
+    `;
+    document.getElementById('resultado').style.display = 'block';
+
+    // Opcional: Desplazarse al resultado
+    document.getElementById('resultado').scrollIntoView({ behavior: 'smooth' });
+});
+</script>
+</body>
+</html>

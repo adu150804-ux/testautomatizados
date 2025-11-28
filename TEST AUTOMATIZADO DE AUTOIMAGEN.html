@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuestionario de Autoimagen (10 Ítems, 4 Puntos)</title>
+<style>
+/* 🎨 Estilos actualizados a tonos azules */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb); /* Fondo Azul claro degradado */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #ffffffcc;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+h1 {
+    text-align: center;
+    color: #0d3b66; /* Color Azul oscuro */
+    margin-bottom: 30px;
+}
+
+/* Sección de instrucciones destacada */
+.instrucciones {
+    background: #e6f3ff; 
+    border-left: 5px solid #0d3b66;
+    padding: 15px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+.instrucciones p {
+    margin: 5px 0;
+}
+
+.pregunta {
+    margin-bottom: 25px;
+    padding: 15px 20px;
+    background: #f1f6f9; /* Fondo muy claro para preguntas */
+    border-radius: 10px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.pregunta:hover {
+    transform: translateY(-3px);
+    background: #d4e3f4;
+}
+
+.pregunta p {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #0d3b66;
+}
+
+.opciones label {
+    display: inline-block;
+    margin-right: 15px;
+    padding: 8px 14px;
+    border-radius: 50px;
+    background: #d9e8f7;
+    cursor: pointer;
+    transition: 0.3s;
+    min-width: 120px; 
+    text-align: center;
+}
+
+.opciones input[type="radio"] {
+    display: none;
+}
+
+.opciones input[type="radio"]:checked + span {
+    background: #0d3b66; /* Azul oscuro para selección */
+    color: #fff;
+}
+
+button {
+    display: block;
+    margin: 30px auto 10px;
+    padding: 12px 35px;
+    background: #0d3b66;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #1a5e92;
+}
+
+#resultado {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background: #c2e9fb;
+    border-left: 6px solid #0d3b66;
+    border-radius: 10px;
+}
+
+#resultado h2 {
+    margin-top: 0;
+    color: #0d3b66;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Cuestionario de Autoimagen</h1>
+
+    <div class="instrucciones">
+        <p style="font-weight: bold; margin-bottom: 10px;">INSTRUCCIONES:</p>
+        <p>Selecciona la opción que mejor refleje la frecuencia de tu comportamiento o creencia:</p>
+        <p style="font-weight: bold; margin-top: 10px;">A (Siempre) | B (Frecuentemente) | C (A veces) | D (Nunca)</p>
+        <p style="font-style: italic; margin-top: 10px;">Una vez completado, haz clic en el botón "Ver Mi Nivel de Autoimagen".</p>
+    </div>
+
+    <form id="testAutoimagen">
+
+        <div class="pregunta"><p>1. Estoy satisfecho(a) con mi apariencia física general.</p><div class="opciones">
+            <label><input type="radio" name="p1" value="4"><span>A (Siempre)</span></label>
+            <label><input type="radio" name="p1" value="3"><span>B (Frecuentemente)</span></label>
+            <label><input type="radio" name="p1" value="2"><span>C (A veces)</span></label>
+            <label><input type="radio" name="p1" value="1"><span>D (Nunca)</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>2. Me trato con amabilidad y comprensión cuando cometo un error.</p><div class="opciones">
+            <label><input type="radio" name="p2" value="4"><span>A (Siempre)</span></label>
+            <label><input type="radio" name="p2" value="3"><span>B (Frecuentemente)</span></label>
+            <label><input type="radio" name="p2" value="2"><span>C (A veces)</span></label>
+            <label><input type="radio" name="p2" value="1"><span>D (Nunca)</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>3. Acepto mis debilidades sin que afecten mi valor personal.</p><div class="opciones">
+            <label><input type="radio" name="p3" value="4"><span>A (Siempre)</span></label>
+            <label><input type="radio" name="p3" value="3"><span>B (Frecuentemente)</span></label>
+            <label><input type="radio" name="p3" value="2"><span>C (A veces)</span></label>
+            <label><input type="radio" name="p3" value="1"><span>D (Nunca)</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>4. Me es fácil perdonarme por los errores del pasado.</p><div class="opciones">
+            <label><input type="radio" name="p4" value="4"><span>A (Siempre)</span></label>
+            <label><input type="radio" name="p4" value="3"><span>B (Frecuentemente)</span></label>
+            <label><input type="radio" name="p4" value="2"><span>C (A veces)</span></label>
+            <label><input type="radio" name="p4" value="1"><span>D (Nunca)</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>5. Me siento cómodo(a) con mi forma de ser actual.</p><div class="opciones">
+            <label><input type="radio" name="p5" value="4"><span>A (Siempre)</span></label>
+            <label><input type="radio" name="p5" value="3"><span>B (Frecuentemente)</span></label>
+            <label><input type="radio" name="p5" value="2"><span>C (A veces)</span></label>
+            <label><input type="radio" name="p5" value="1"><span>D (Nunca)</span></label>
+        </div></div>
+        
+        <div class="pregunta"><p>6. Confío en mi capacidad para influir positivamente en mi entorno.</p><div class="opciones">
+            <label><input type="radio" name="p6" value="4"><span>A (Siempre)</span></label>
+            <label><input type="radio" name="p6" value="3"><span>B (Frecuentemente)</span></label>
+            <label><input type="radio" name="p6" value="2"><span>C (A veces)</span></label>
+            <label><input type="radio" name="p6" value="1"><span>D (Nunca)</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>7. Creo firmemente en mi propio juicio y decisiones.</p><div class="opciones">
+            <label><input type="radio" name="p7" value="4"><span>A (Siempre)</span></label>
+            <label><input type="radio" name="p7" value="3"><span>B (Frecuentemente)</span></label>
+            <label><input type="radio" name="p7" value="2"><span>C (A veces)</span></label>
+            <label><input type="radio" name="p7" value="1"><span>D (Nunca)</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>8. Me es fácil establecer y mantener mis límites personales.</p><div class="opciones">
+            <label><input type="radio" name="p8" value="4"><span>A (Siempre)</span></label>
+            <label><input type="radio" name="p8" value="3"><span>B (Frecuentemente)</span></label>
+            <label><input type="radio" name="p8" value="2"><span>C (A veces)</span></label>
+            <label><input type="radio" name="p8" value="1"><span>D (Nunca)</span></label>
+        </div></div>
+
+        <div class="pregunta"><p>9. Mi estado de ánimo NO se ve afectado por la crítica o la aprobación de otros.</p><div class="opciones">
+            <label><input type="radio" name="p9" value="4"><span>A (Siempre)</span></label>
+            <label><input type="radio" name="p9" value="3"><span>B (Frecuentemente)</span></label>
+            <label><input type="radio" name="p9" value="2"><span>C (A veces)</span></label>
+            <label><input type="radio" name="p9" value="1"><span>D (Nunca)</span></label>
+        </div></div>
+        
+        <div class="pregunta"><p>10. No me comparo constantemente con los demás.</p><div class="opciones">
+            <label><input type="radio" name="p10" value="4"><span>A (Siempre)</span></label>
+            <label><input type="radio" name="p10" value="3"><span>B (Frecuentemente)</span></label>
+            <label><input type="radio" name="p10" value="2"><span>C (A veces)</span></label>
+            <label><input type="radio" name="p10" value="1"><span>D (Nunca)</span></label>
+        </div></div>
+
+        <button type="submit">Ver Mi Nivel de Autoimagen</button>
+    </form>
+
+    <div id="resultado"></div>
+</div>
+
+<script>
+document.getElementById('testAutoimagen').addEventListener('submit', function(e){
+    // LÍNEA CRÍTICA: EVITA LA RECARGA.
+    e.preventDefault();
+    let puntajeTotal = 0;
+    const numPreguntas = 10;
+    
+    // 1. Recoger y sumar los puntos de las 10 preguntas
+    for(let i=1; i<=numPreguntas; i++){
+        const r = document.querySelector(`input[name=p${i}]:checked`);
+        if(!r){ 
+            alert('¡Atención! Por favor, responde todas las preguntas antes de ver el resultado.'); 
+            return; 
+        }
+        puntajeTotal += parseInt(r.value);
+    }
+
+    let interpretacion = "";
+    let icono = "";
+    let titulo = "";
+
+    // 2. Implementar la lógica condicional (Rangos 10 - 40)
+    
+    if (puntajeTotal >= 30) {
+        icono = "⭐";
+        titulo = "Alto";
+        interpretacion = "¡Tienes una **Autoimagen muy fuerte y estable**! Tu puntaje (entre 30 y 40) indica que te ves con claridad, te aceptas incondicionalmente y tu valor no depende de lo que piensen los demás. Sigue cultivando esa **coherencia y autocompasión**; es la base de un bienestar duradero.";
+    } else if (puntajeTotal >= 20) {
+        icono = "⚖️";
+        titulo = "Medio";
+        interpretacion = "Tu Autoimagen se encuentra en un proceso de **crecimiento activo**. Tu puntaje (entre 20 y 29) muestra que tienes buenos puntos de partida, pero es posible que en ocasiones te sientas en **conflicto o te compares con otros**. Este es el momento perfecto para enfocarte en tu **valor interno** y aprender a **validarte sin necesitar la aprobación externa**.";
+    } else { // 10 - 19
+        icono = "🔍";
+        titulo = "Bajo";
+        interpretacion = "Tu puntaje (entre 10 y 19) sugiere que estás experimentando **dificultades con la Autoaceptación**. Es probable que tu foco esté puesto en tus defectos o que la **validación de otras personas sea demasiado importante** para ti. Recuerda que tu valor es inherente. Te recomiendo mucho iniciar un camino de **autocompasión** y, si lo sientes necesario, buscar el **apoyo de un profesional** para redefinir tu identidad.";
+    }
+
+    // 3. Mostrar el resultado
+    document.getElementById('resultado').innerHTML = `
+        <h2>${icono} Tu Puntuación Total: ${puntajeTotal} / 40</h2>
+        <h3 style="color: #0d3b66;">Nivel de Autoimagen: ${titulo}</h3>
+        <p style="font-size: 1.1em;">${interpretacion}</p>
+        <p style="font-size: 0.9em; margin-top: 15px;">Recuerda: Este es solo un cuestionario de reflexión y no un diagnóstico clínico.</p>
+    `;
+    document.getElementById('resultado').style.display = 'block';
+});
+</script>
+</body>
+</html>
